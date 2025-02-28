@@ -1,11 +1,11 @@
-from abc import ABC, abstractcmethod
+from abc import ABC, abstractmethod
 from src.model.entities.eventos import Eventos
 
 
 #CLASSE ABSTRATA NÃO PODE TER OBJETOS
 class EventosRepositoryInterface(ABC):
-    @abstractcmethod
+    @abstractmethod
     def insert(self, event_name: str) -> None: pass
     
-    @abstractcmethod       
+    @abstractmethod       
     def select_event(self, event_name: str) -> Eventos: pass
