@@ -2,7 +2,7 @@ from src.http_types.http_request import HttpRequest
 from src.http_types.http_response import HttpResponse
 from src.model.repositories.interfaces.inscritos_repository import InscritosRepositoryInterface
 
-class Subscribermanager:
+class SubscriberManager:
     def __init__(self, susbscribers_repo: InscritosRepositoryInterface):
         self.__subscribers_repo = susbscribers_repo
 
@@ -33,7 +33,8 @@ class Subscribermanager:
                         "count": len(formatted_subscriber),
                         "subscribers": formatted_subscriber
                     }
-                }
+                },
+                status_code=200
             )
         
     def __format_event_ranking(self, event_ranking: list) -> HttpResponse:
@@ -41,7 +42,7 @@ class Subscribermanager:
         for position in event_ranking:
             formatted_event_ranking.append(
                 {
-                    "link": position.nome,
+                    "link": position.link,
                     "total_subscribers": position.total,
                 }
             )
@@ -52,5 +53,6 @@ class Subscribermanager:
                         "count": len(formatted_event_ranking),
                         "ranking": formatted_event_ranking
                     }
-                }
+                },
+                status_code=200
             )

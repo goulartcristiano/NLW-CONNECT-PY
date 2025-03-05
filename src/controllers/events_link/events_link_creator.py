@@ -16,7 +16,7 @@ class EventsLinkCreator:
         return self.__format_response(new_link, event_id, subscriver_id)
 
     def __check_event_link(self, event_id: int, subscriber_id: int) -> None:
-        response = self.__events_link_repo.select_event_link(event_id, subscriber_id)
+        response = self.__events_link_repo.select_events_link(event_id, subscriber_id)
         if response: raise Exception("Link já existe!")
 
     def __create_event_link(self, event_id: int, subscriber_id: int) -> str:
